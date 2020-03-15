@@ -36,8 +36,6 @@ class LikedImageModel{
     } catch(err) {
         return err.message;
     }
-}
-
-}
+}}
 
 module.exports = LikedImageModel;

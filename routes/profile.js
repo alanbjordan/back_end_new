@@ -1,6 +1,6 @@
 const express = require('express'),
 router = express.Router(),
-imageModel = require('../models/imageModel');
+imageModel = require('../models/imageModel'),
 likesModel = require('../models/likesModel');
 
 
