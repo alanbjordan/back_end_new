@@ -9,4 +9,3 @@ const hamburger = (function() {
 })();
 
 hamburger();
-

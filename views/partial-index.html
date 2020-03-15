@@ -1,78 +1,22 @@
 <div class="columns">
     <div class="column"></div>
     <div class="column is-four-fifths has-background-primary">
-
-        <div class="grid" data-colcade="columns: .grid-col, items: .grid-item">
-            <div class="grid-col grid-col--1"></div>
-            <div class="grid-col grid-col--2"></div>
-            <div class="grid-col grid-col--3"></div>
-            <div class="grid-col grid-col--4"></div>
+        <div class="container">
+            
             ${resultData.map (images => {
-            return `<div class="grid-item">
-                        <img class="pinterest" src=${images.picture}>
-                        <div class="overlay">
-                            <button id="open" onclick="window.location.href = '/images/${images.id}';" class="button is-primary is-inverted has-text-primary">
-                            Open Image
-                            </button>
-                          
-                        <form action="/" method="post">   
-                            <input type="hidden" name="name" value="${images.picture}">        
-                            <button id="like" type="submit" class="button is-primary is-inverted">
-                            Like
-                            </button>
-                        </form>
-                          
-                            <button id="uploader" onclick="" class="button is-primary is-inverted">
-                            Uploader
-                            </button>
-                        </div>
-                    </div> `}).join('')}
+            return `<div class="item"><img src=${images.picture}>
+            <button onclick="window.location.href = '/images/${images.id}';" class="button is-primary is-inverted has-text-primary">
+                Open Image
+            </button>
+            <button onclick="" class="button is-primary is-inverted">
+                Like
+            </button>
+            <button onclick="" class="button is-primary is-inverted">
+                Uploader
+            </button></div>
+            `}).join('')}
             
         </div>
     </div>
     <div class="column"></div>
 </div>
-${!!is_logged_in ? `
-<div >
-
-</div>  ` : `
-
-<div id="modal">
-    <div id="modal-content">
-        <div>
-            <div id="modalLogin">
-                <p id="welcomeModal">Welcome To Our Site</p>
-                <h4>Login or Sign Up & Start Liking Images</h4>
-            </div>
-                <form id="form1" action="/users/login" method=post autocomplete="off">
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control1">
-                            <input name="email" class="input1" type="email" placeholder="Enter Your Email">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Password</label>
-                        <div class="control1">
-                            <input class="input1" name="password" type="password" placeholder="Enter your password">
-                        </div>
-                    </div>
-                    <div class="field is-grouped is-grouped-centered">
-                        <p class="control">
-                            <a>
-                            <button id="modalLoginBtn" type="submit">Log in</button> 
-                            </a>
-                        </p>
-                    </div>
-                </form>
-                    <div id="lowBtn">   
-                        <h1>OR </h1>                
-                        <a href="/users/signup">
-                            <button id="modalSignupBtn" >Sign up</button> 
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-`}
-
