@@ -28,6 +28,7 @@ router.get("/:picture_id", async function(req, res, next) {
     locals: {
       title: 'Film Data',
       data: data,
+      name: req.session.name,
       is_logged_in: req.session.is_logged_in
     },
     partials: {
