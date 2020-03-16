@@ -22,14 +22,11 @@ router.get('/', async function(req, res, next) {
 
 router.get("/:picture_id", async function(req, res, next) {
   const { picture_id } = req.params;
-  console.log(picture_id);
+  console.log("this is the picture id ", picture_id);
   const user_id = req.session.user_id;
   const data = await imageModel.getPicturesById(picture_id);
   const profileData = await imageModel.getProfilePicture(user_id);
   const commentData = await commentsModel.getCommentsByImageId(picture_id);
-
-  
-
   res.render("template", {
     locals: {
       title: 'Film Data',

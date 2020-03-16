@@ -10,8 +10,9 @@ class commentsModel{
 static async getCommentsByImageId(picture_id) {
     try {
       const response = await db.any(
-        `SELECT * FROM comments WHERE picture_id = ${picture_id};`
+        `SELECT * FROM comments WHERE picture_id = ${picture_id};`,
       );
+      // const response = await db.one(`SELECT id, name, password FROM users WHERE email = $1;`, [this.email]);
       return response;
     } catch (error) {
       console.error("ERROR: ", error);
@@ -27,6 +28,7 @@ async addComment(user_id, comment) {
         return response;
     } catch(err) {
         return err.message;
+        
     }
 }
 }
