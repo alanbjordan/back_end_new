@@ -1,7 +1,7 @@
 const express = require('express'),
 router = express.Router(),
-imageModel = require('../models/imageModel'),
-commentsModel = require('../models/commentsModel');
+imageModel = require('../models/imageModel');
+// commentsModel = require('../models/commentsModel');
 
 
 /* GET home page. */
@@ -26,7 +26,7 @@ router.get("/:picture_id", async function(req, res, next) {
   const user_id = req.session.user_id;
   const data = await imageModel.getPicturesById(picture_id);
   const profileData = await imageModel.getProfilePicture(user_id);
-  const commentData = await commentsModel.getCommentsByImageId(picture_id);
+  const commentData = await imageModel.getCommentsByImageId(picture_id);
   res.render("template", {
     locals: {
       title: 'Film Data',
