@@ -1,7 +1,3 @@
-<div class="columns">
-    <div class="column"></div>
-    <div class="column is-four-fifths">
-
         <div class="grid" data-colcade="columns: .grid-col, items: .grid-item">
             <div class="grid-col grid-col--1"></div>
             <div class="grid-col grid-col--2"></div>
@@ -9,7 +5,7 @@
             <div class="grid-col grid-col--4"></div>
             ${resultData.map (images => {
             return `<div class="grid-item">
-                        <img class="pinterest" src=${images.picture}>
+                        <img class="lazy" data-src="${images.picture}" src="images/placeholder.png" onerror="this.src='images/placeholder.png';" >
                         <div class="overlay">
                             <button id="open" name="picture_id" onclick="window.location.href = '/images/${images.id}';" class="button is-primary is-inverted has-text-primary">
                             Open Image
@@ -29,9 +25,6 @@
                     </div> `}).join('')}
             
         </div>
-    </div>
-    <div class="column"></div>
-</div>
 ${!!is_logged_in ? `
 <div >
 

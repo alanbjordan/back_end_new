@@ -18,7 +18,7 @@ return response
 }
   static async getAllPictures() {
     try {
-      const response = await db.any(`SELECT * FROM images;`);
+      const response = await db.any(`SELECT * FROM images ORDER BY random();`);
       return response;
     } catch (error) {
       console.error("ERROR: ", error);

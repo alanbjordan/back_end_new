@@ -83,6 +83,9 @@ width: 15rem;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
 }
 
 .grid-col {
@@ -122,17 +125,19 @@ width: 15rem;
   opacity: 1;
 }
 
-.pinterest {
+.lazy {
   border-radius: 10px;
 }
 
 /* ------------ */
-nav {
-  padding-bottom: 10px;
-}
+
 
 div.columns {
   padding-top: 15px;
+}
+
+.divider {
+  margin: 0px 0px;
 }
 
 .container {
@@ -143,6 +148,14 @@ div.columns {
 
 .item {
   width: 25%;
+}
+
+.user {
+  padding-right: 7px;
+}
+
+a.navbar-item {
+  color: grey;
 }
 
 #modal {
@@ -181,7 +194,7 @@ div.columns {
   #modalLoginBtn {
     width: 200px;
     height: 35px;
-    background-color: red;
+    background-color: #1d4ec4;
     border-radius: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.2em;
