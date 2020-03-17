@@ -5,12 +5,16 @@ likesModel = require('../models/likesModel');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
+  const user_id = req.session.user_id;
   const resultData = await imageModel.getAllPictures();
+  const profileData = await imageModel.getProfilePicture(user_id);
+  console.log(profileData[0]);
   console.log(req.session.name);
   res.render('template', {
     locals: {
       title: 'Film Data',
-      user: req.session.user_id,
+      profileData: profileData,
+      user_id: req.session.user_id,
       resultData: resultData,
       is_logged_in: req.session.is_logged_in,
       name: req.session.name

@@ -72,4 +72,18 @@ router.post("/", async function(req, res){
   }
 })
 
+router.get('/upload', function (req, res, next) {
+  
+  res.render('template', {
+    locals: {
+      title: 'Image Upload',
+      name: req.session.name,
+      is_logged_in: req.session.is_logged_in
+    },
+    partials: {
+      partial: 'partial-upload'
+    }
+  });
+});
+
 module.exports = router;
