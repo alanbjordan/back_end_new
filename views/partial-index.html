@@ -5,7 +5,7 @@
             <div class="grid-col grid-col--4"></div>
             ${resultData.map (images => {
             return `<div class="grid-item">
-                        <img class="lazy" data-src="${images.picture}" src="images/placeholder.png" onerror="this.src='${images.picture}';" >
+                        <img class="lazy" data-src="${images.picture}" src="images/placeholder.png"  >
                         <div class="overlay">
                             <button id="open" name="picture_id" onclick="window.location.href = '/images/${images.id}';" class="button is-primary is-inverted has-text-primary">
                             Open Image
