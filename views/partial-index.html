@@ -6,8 +6,9 @@
             ${resultData.map (images => {
             return `<div class="grid-item">
                     <a id="open" name="picture_id" onclick="window.location.href = '/images/${images.id}';">
-                    <img class="lazy" data-src="${images.picture}" src="images/placeholder.png" onerror="this.src='${images.picture}';" >
+                      <img class="lazy" data-src="${images.picture}" src="images/placeholder.png"  >
                     </a>
+
                         <div class="overlay">
                             <form action="/" method="post">   
                             <input type="hidden" name="name" value="${images.picture}">        

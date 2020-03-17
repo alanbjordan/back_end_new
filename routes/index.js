@@ -7,8 +7,9 @@ likesModel = require('../models/likesModel');
 router.get('/', async function(req, res, next) {
   const user_id = req.session.user_id;
   const resultData = await imageModel.getAllPictures();
+  if (await imageModel.getProfilePicture(user_id) != undefined) {
   const profileData = await imageModel.getProfilePicture(user_id);
-  console.log(profileData[0]);
+  console.log("this is profile data: ", profileData[0]);
   console.log(req.session.name);
   res.render('template', {
     locals: {
@@ -22,7 +23,9 @@ router.get('/', async function(req, res, next) {
     partials: {
       partial: 'partial-index'
     }
-  })
+  })} if (profileData[0] == undefined) {
+    res.redirect('/users/signup')
+  }
 });
 
 /* POST liked image */
