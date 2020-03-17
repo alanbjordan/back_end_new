@@ -7,32 +7,30 @@
         </div>
         <div>
 <div id="singleImg">
-    <div >    
+    <div>    
         <p>
-        <img src="${data[0].picture}"  >
-    
-    </p>
+        <img src="${resultData[0].picture}">
 
-    <form action="/images/comment" method="POST" autocomplete="off">
-        <input type="hidden" name="user_id" value="${data[0].user_id}">
-        <input type='hidden' name='picture_id' value=${data[0].id}>
-        <!-- <label id="myr">My Review<br> -->
-            <input name='comment' placeholder='Enter Review'></textarea>
-        </label><br>
-        <button type='submit'>Save Review</button>
-
-        <div class="grid-col grid-col--4"></div>
-          ${commentData.map (comments => {
-          return `<div class="grid-item">
-                      <img class="pinterest" src="${comments.comment}" onerror="this.src='${comments.comment}';" >
-                  </div>
-                  `}).join('')}
-          
+        <form action="/images/comment" method="POST" autocomplete="off">
+            <input type="hidden" name="user_id" value="${resultData[0].user_id}">
+            <input type='hidden' name='picture_id' value=${resultData[0].id}>
+            <label id="myr">My Review<br>
+                <input name='comment' placeholder='Enter Review'></input>
+            </label><br>
+            <button type='submit'>Save Review</button>       
+    </p><br>
+    <center>
+    <div style="height:120px;width:160px;border:none solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+    ${commentData.map (comments => {
+        return `<div class="grid-item">
+                    <label class="pinterest" src="${comments.comment}">${name}: ${comments.comment}</label>
+                </div>
+                `}).join('')}
+            </div>  
+        </center>
       </div>
-
     </form>
 </div>
-
 </div>
-            </div>
+</div>
         </div>

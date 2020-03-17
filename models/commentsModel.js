@@ -9,7 +9,7 @@ class commentsModel{
     }
 static async getCommentsByImageId(picture_id) {
     try {
-      const response = await db.one(
+      const response = await db.any(
         `SELECT * FROM comments WHERE picture_id = ${picture_id};`
       );
       return response;

@@ -37,10 +37,10 @@ return response
     }
   }
 
-  static async getPicturesById(picture) {
+  static async getPicturesById(picture_id) {
     try {
       const response = await db.any(
-        `SELECT * FROM images WHERE id = ${picture};`
+        `SELECT * FROM images WHERE id = ${picture_id};`
       );
       console.log(response);
       return response;
