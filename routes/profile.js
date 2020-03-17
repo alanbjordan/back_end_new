@@ -88,4 +88,27 @@ router.get('/upload', async function (req, res, next) {
   });
 });
 
+router.post("/upload", async function(req, res){
+  if(req.files) {
+      const file = req.files.image,
+      filename = file.name;
+      // console.log(filename) 
+      const picture = "/images/"+filename;   
+      const user_id = req.session.user_id;      
+      const uploadPicture = new imageModel(null, picture, user_id); 
+      uploadPicture.postPicture();   
+      // console.log(req.session.user_id);
+      file.mv("./public/images/"+filename,function(err){
+          if(err) {
+              console.log(err)
+              res.send("error occured")   
+              res.redirect('/profile')            
+          }      
+          else { 
+            res.redirect('/profile');
+          }
+      })
+  }
+})
+
 module.exports = router;

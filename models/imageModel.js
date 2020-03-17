@@ -89,6 +89,18 @@ static async hello1() {
     return response;
   }
 
+  async postPicture() {
+    try {
+        const response = await db.one('INSERT INTO images (picture, user_id) VALUES ($1, $2) RETURNING id;', 
+        [this.picture, this.user_id]);
+        console.log(response);
+        return response
+    } catch (error) {
+        console.error('ERROR', error);
+        return error;
+    }
+  }
+
 }
 
 module.exports = PictureReviewModel;
