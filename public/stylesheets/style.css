@@ -163,6 +163,15 @@ a.navbar-item {
   color: grey;
 }
 
+.love {
+  width: 25%;
+  margin-bottom: 5px;
+}
+
+#like {
+  margin-bottom: 15px;
+}
+
 #modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
