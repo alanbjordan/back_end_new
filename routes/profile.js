@@ -48,6 +48,21 @@ else if (resultData[0] == undefined && user_id != undefined) {
 });
 
 
+  router.get('/newUser', function (req, res, next) {
+
+    res.render('template', {
+      locals: {
+        title: 'Upload User Photo',
+        name: req.session.name,
+        is_logged_in: req.session.is_logged_in
+      },
+      partials: {
+        partial: 'partial-profile-upload'
+      }
+    });
+  });
+
+
 
 router.post("/", async function(req, res){
   if(req.files) {
